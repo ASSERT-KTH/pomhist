@@ -1,6 +1,6 @@
 # PomHist
 
-![Build](https://github.com/castor-software/pomhist//workflows/build-on-push/badge.svg)
+![Build](https://github.com/castor-software/pomhist/workflows/Build/badge.svg?branch=master)
 
 ### What is PomHist
 
