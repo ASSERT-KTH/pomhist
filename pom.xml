@@ -106,6 +106,14 @@
             <artifactId>sonar-maven-plugin</artifactId>
             <version>3.6.1.1688</version>
          </plugin>
+         <plugin>
+            <groupId>org.eluder.coveralls</groupId>
+            <artifactId>coveralls-maven-plugin</artifactId>
+            <version>4.3.0</version>
+            <configuration>
+               <repoToken>7r4nmFR9wbws2ioBK6KqgeDSqvFMH9oHL</repoToken>
+            </configuration>
+         </plugin>
       </plugins>
    </build>
 </project>
