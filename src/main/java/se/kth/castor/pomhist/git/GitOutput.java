@@ -15,7 +15,7 @@ public class GitOutput extends Thread
     public GitOutput(InputStream is)
     {
         this.is = is;
-        this.lines = new ArrayList<>();
+        lines = new ArrayList<>();
     }
 
     @Override
@@ -24,7 +24,6 @@ public class GitOutput extends Thread
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is));) {
             String line;
             while ((line = br.readLine()) != null) {
-                // System.out.println(line);
                 lines.add(line);
             }
         } catch (IOException ioe) {

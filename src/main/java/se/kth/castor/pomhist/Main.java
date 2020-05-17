@@ -13,16 +13,21 @@ import se.kth.castor.pomhist.git.ProcessGitOutput;
 
 public class Main
 {
+
     public static void main(String[] args) throws IOException, InterruptedException
     {
-        Path projectDir = Paths.get(args[0]);
-        Files.createDirectories(projectDir);
-        Git git = new Git();
-        git.gitLog(projectDir);
-        List<String> lines = GitOutput.getLines();
-        Collections.reverse(lines);
-        ProcessGitOutput processGitOutput = new ProcessGitOutput(lines);
-        List<String> output = processGitOutput.processOutput();
-        output.forEach(System.out::println);
+        if (args.length == 1) {
+            Path projectDir = Paths.get(args[0]);
+            Files.createDirectories(projectDir);
+            Git git = new Git();
+            git.gitLog(projectDir);
+            List<String> lines = GitOutput.getLines();
+            Collections.reverse(lines);
+            ProcessGitOutput processGitOutput = new ProcessGitOutput(lines);
+            List<String> output = processGitOutput.processOutput();
+            output.forEach(System.out::println);
+        } else {
+            System.out.println("Run: <pomhist-version-jar-with-dependencies.jar> <path-to-a-maven-project>");
+        }
     }
 }
