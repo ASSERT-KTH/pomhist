@@ -1,6 +1,6 @@
 name: Build
 
-on: [push]
+on: ["push", "pull_request"]
 
 jobs:
   build:
@@ -16,3 +16,7 @@ jobs:
         run: mvn clean test
       - name: Generate coverage report
         run: mvn jacoco:report
+      - name: Coveralls
+         uses: coverallsapp/github-action@master
+         with:
+         github-token: ${{ secrets.GITHUB_TOKEN }}
