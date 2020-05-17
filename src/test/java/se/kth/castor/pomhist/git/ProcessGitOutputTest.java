@@ -63,4 +63,21 @@ class ProcessGitOutputTest
         Assert.assertTrue(processGitOutput.processOutput().isEmpty());
     }
 
+    @Test
+    void testMoreComplexCase()
+    {
+        List<String> list = Arrays.asList(
+            "+<artifactId>a</artifactId>",
+            "+<artifactId>b</artifactId>",
+            "-<artifactId>a</artifactId>",
+            "+<artifactId>c</artifactId>",
+            "-<artifactId>c</artifactId>",
+            "-<artifactId>b</artifactId>",
+            "+<artifactId>c</artifactId>",
+            "-<artifactId>a</artifactId>",
+            "+<artifactId>b</artifactId>");
+        processGitOutput = new ProcessGitOutput(list);
+        Assert.assertArrayEquals(Arrays.asList("+b", "+c").toArray(), processGitOutput.processOutput().toArray());
+    }
+
 }

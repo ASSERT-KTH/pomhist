@@ -42,7 +42,7 @@ public class ProcessGitOutput
             if (current.startsWith("+")) {
                 boolean a = false;
                 boolean b = false;
-                for (int j = ++i; j < output.size(); ++j) {
+                for (int j = i + 1; j < output.size(); ++j) {
                     if (output.get(j).equals(current)) {
                         a = true;
                     }
